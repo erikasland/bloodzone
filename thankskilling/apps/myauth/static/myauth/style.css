@@ -3,8 +3,12 @@
     border: 0;
 }
 
-body{
-    background-color: lightblue;
+html { 
+ background: url(bloodzone.jpg) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
 }
 
 #wrapper {
@@ -12,23 +16,36 @@ body{
     margin: 0 auto;
 }
 
+h1{
+    font-family: helvetica;
+    color: white;
+    margin: 20px 0 0 75px;
+    font-size: 40px;
+}
+
 form{
     border: grey solid 1px;
     width: 275px;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 35px auto;
     padding: 15px 15px;
     border-radius: 10px;
     background-color: lightgrey;
-
+    color: white;
+    font-family: helvetica;
+    background-color: black;
 }
 
 input{
     margin: 0 0 10px 0;
 }
 
+.reglog{
+    padding: 5px 10px;
+}
+
 section{
     width: 865px;
-    margin: 30% auto;
+    margin: 20% auto;
     padding: 30px 30px;
 }
 
@@ -38,8 +55,6 @@ section{
 
 #right-div{
     margin: 0 0 0 250px; 
-}
-#left-div{
 }
 
 button{
@@ -52,4 +67,9 @@ button{
     font-size: 20px;
     border-radius: 10px;
     border: grey solid 1px;
+    background-color: black;
+}
+
+#one{
+    margin-left: 45px;
 }
