@@ -41,6 +41,8 @@ input{
 
 .reglog{
     padding: 5px 10px;
+    width: 70px;
+    border-radius: 5px;
 }
 
 section{
@@ -71,5 +73,26 @@ button{
 }
 
 #one{
+    margin-left: 47px;
+}
+
+#two{
     margin-left: 45px;
 }
+
+#three{
+    margin-left: -1px;
+}
+
+#four{
+    margin-left: 17px;
+}
+
+#five{
+    margin-left: 43px;
+}
+
+#six{
+    margin-right: 3.5px;
+}
+
