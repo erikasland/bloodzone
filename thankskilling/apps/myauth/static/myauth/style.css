@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    border: 0;
+}
+
+body{
+    background-color: lightblue;
+}
+
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+form{
+    border: grey solid 1px;
+    width: 275px;
+    margin: 0 auto 25px auto;
+    padding: 15px 15px;
+    border-radius: 10px;
+    background-color: lightgrey;
+
+}
+
+input{
+    margin: 0 0 10px 0;
+}
+
+section{
+    width: 865px;
+    margin: 30% auto;
+    padding: 30px 30px;
+}
+
+#left-div, #right-div{
+    display: inline-block; vertical-align: top;
+}
+
+#right-div{
+    margin: 0 0 0 250px; 
+}
+#left-div{
+}
+
+button{
+    display: block;
+    width: 300px;
+    height: 70px;
+    margin: 20px 0 40px 0;
+    font-family: helvetica;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    border: grey solid 1px;
+}
