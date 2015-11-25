@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>This is the show page!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movies/CSS/show.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("inside the loop");
+            $.get("http://www.omdbapi.com/?t={{ movie.title }}&y=&plot=full&r=json",function(data){
+                console.log('inside the get');
+                var title = '<h1>'+data.Title+'</h1>';
+                var plot = '<p>'+data.Plot+'</p>';
+                var pic = '<img src="'+data.Poster+'">';
+                var goback = '<a href=\"{% url "index" %}\">Go Back</a>'
+                $('#movie').append(title+plot+pic+goback);
+            }, 'json');
+        });
+    </script>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='movie'></div>
+        <a href="{% url 'watch_list' %}">GO TO YOUR WATCH LIST!</a>
+    </div>
+</body>
+</html>
