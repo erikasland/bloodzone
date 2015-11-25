@@ -65,38 +65,32 @@
         }
 
     </script>
-
 </head>
 <body>
 <div id='wrapper'>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <h1>BLOODZONE</h1>
+    <audio src="static/myauth/gary.mp3" autoplay loop>
+    </audio> 
     <section>
-        <div id='left-div'>
-            <button>SIGN IN WITH GOOGLE</button>
-            <button>SIGN IN WITH FACEBOOK</button>
-            <button>SIGN IN WITH TWITTER</button>
+       <div id='left-div'>
+            
         </div>
         <div id='right-div'>
             <form action='{% url "registration" %}' method='post'>
                 {% csrf_token %}
                 <label>NAME: <input id='one' type='text' align="right" name='name'></label><br>
                 <label>EMAIL: <input id='two' type='text' name='email'></label><br>
-                <label>PASSWORD: <input id='three' type='text' name='password'></label><br>
-                <label>CONFIRM: <input id='four' type='text' name='confirm'></label><br>
+                <label>PASSWORD: <input id='three' type='password' name='password'></label><br>
+                <label>CONFIRM: <input id='four' type='password' name='confirm'></label><br>
                 <input class='reglog' type='submit' value='Register'>
             </form>
             <form action='{% url "login" %}' method='post'>
                 {% csrf_token %}
-                <label>LOGIN: <input id='five' type='text' name='email'></label><br>
-                <label>PASSWORD: <input id='six' type='text' name='password'></label><br>
+                <label>EMAIL: <input id='five' type='text' name='email'></label><br>
+                <label>PASSWORD: <input id='six' type='password' name='password'></label><br>
                 <input class='reglog' type='submit' value='Login'>
             </form>
-            {% if messages %}
-                {% for message in messages %}
-                    <p style="background-color:pink">{{message}}</p>
-                {% endfor %}
-            {% endif %}
+            <div id='buttong' class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
     </section>
 </div>

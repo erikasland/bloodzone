@@ -19,6 +19,8 @@
     </script>
 </head>
 <body>
+<audio src="{% static 'movies/gary.mp3' %}" autoplay loop>
+</audio>
     <div id='wrapper'>
         <div id='movie'></div>
         <a href="{% url 'add' movie.id %}">ADD TO WATCH LIST!</a>
