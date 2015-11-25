@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title></title>
+	    {% load staticfiles %}
+	    <!-- <link rel='stylesheet' type='text/css' href='{% static "myauth/style.css" %}'> -->
+	    <script src="https://apis.google.com/js/platform.js" async defer></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	    <meta name="google-signin-client_id" content="976044739107-s51mrphhdqnus946ar5m3bahk9jggsbu.apps.googleusercontent.com">
+		    <script>
+		  function signOut() {
+		    var auth2 = gapi.auth2.getAuthInstance();
+		    auth2.signOut().then(function () {
+
+		      console.log('User signed out.');
+		      window.location.href = '/logout';
+		    });
+		  }
+
+		  function onLoad() {
+		      gapi.load('auth2', function() {
+		        gapi.auth2.init();
+		      });
+		    }
+		</script>
+	</head>
+
+	<body>
+
+	{% if name %}
+		{{request.session.id}}	
+		{{name}}
+		{{email}}
+		<img src="{{image}}">
+		<a href="#" onclick="signOut();">Sign out</a>
+		<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	{% else %}
+		Hello {{request.session.name}}
+		{{request.session.id}}
+		<a href= "{% url 'logout' %}">Log out</a>
+	{% endif %}
+	</body>
+
+</html>
