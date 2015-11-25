@@ -1,0 +1,41 @@
+* {
+  padding: 0px;
+  margin: 0px auto;
+  font-family: Helvetica;
+  outline: green thin dashed;
+}
+
+#wrapper {
+  width: 100%;
+  min-width: 960px;
+}
+
+#navigation {
+  display: block;
+}
+
+#movie_list_outer {
+  display: block;
+  overflow-x: scroll;
+  width: 100%; 
+  height: 500px;
+}
+#movie_list_inner {
+  width: 10300px;
+}
+
+.movie {
+  height: 100%;
+  display: inline-block;
+  width: 350px;
+  text-align: center;
+  vertical-align: center;
+}
+  .movie h1 {
+    height: 125px;
+    vertical-align: center;
+  }
+img {
+  height: 300px;
+  width: 200px;
+}

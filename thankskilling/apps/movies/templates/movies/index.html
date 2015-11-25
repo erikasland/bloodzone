@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Hello</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movies/CSS/index.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log('outside the loop');
+            {% for movie in movies %}
+                console.log("inside the loop");
+                $.get("http://www.omdbapi.com/?t={{ movie.title }}&y=&plot=short&r=json",function(data){
+                    console.log('inside the get');
+                    var title = data.Title;
+                    var plot = data.Plot;
+                    var pic = data.Poster
+                    $('#movie_list_inner').append("<div class='movie'><h1>"+title+"</h1>"+"<p></p>"+"<img src="+ pic +"></div>")
+                }, 'json');
+            {% endfor %}
+        }); 
+    </script>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='navigation'>
+            <h1>Hello Your Name</h1>
+            <a href="#">log out</a>
+        </div>
+        <div id='movie_list_outer'>
+            <div id='movie_list_inner'></div>
+        </div>
+    </div>
+</body>
+</html>
