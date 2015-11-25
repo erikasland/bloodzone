@@ -1,0 +1,45 @@
+* {
+  padding: 0px;
+  margin: 0px auto;
+  font-family: Helvetica;
+}
+
+/*html { 
+  background: url("http://www.picturenose.com/wp-content/uploads/horror.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+#movie_list_outer {
+  display: block;
+  overflow-x: scroll;
+  width: 90%; 
+  height: 500px;
+  border: 10px solid black;
+  padding: 5px;
+}
+#movie_list_inner {
+  width: 10300px;
+}
+
+.movie {
+  height: 100%;
+  display: inline-block;
+  width: 350px;
+  text-align: center;
+  vertical-align: center;
+}
+  .movie h1 {
+    -webkit-text-stroke: 2px black;
+    height: 125px;
+    vertical-align: center;
+  }
+  .movie a {
+    display: block;
+  }
+img {
+  height: 300px;
+  width: 200px;
+}

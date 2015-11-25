@@ -21,6 +21,7 @@
 <body>
     <div id='wrapper'>
         <div id='movie'></div>
+        <a href="{% url 'add' movie.id %}">ADD TO WATCH LIST!</a>
         <a href="{% url 'watch_list' %}">GO TO YOUR WATCH LIST!</a>
     </div>
 </body>
