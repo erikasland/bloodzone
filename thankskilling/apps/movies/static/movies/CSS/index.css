@@ -39,7 +39,8 @@ html {
   padding: 5px;
 }
 #movie_list_inner {
-  width: 10300px;
+  width: auto;
+  white-space: nowrap;
 }
 
 .movie {
@@ -60,4 +61,9 @@ html {
 img {
   height: 300px;
   width: 200px;
+}
+
+#profile_picture {
+  height: 50px;
+  width: 50px;
 }

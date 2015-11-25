@@ -1,9 +1,34 @@
 <html>
 <head>
     <title></title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movies/CSS/watch_list.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log('outside the loop');
+            {% for movies in user_list %}
+                console.log("inside the loop");
+                $.get("http://www.omdbapi.com/?t={{ movies.movie.title }}&y=&plot=short&r=json",function(data){
+                    console.log('inside the get');
+                    var title = data.Title;
+                    var plot = data.Plot;
+                    var pic = data.Poster
+                    $('#movie_list_inner').append(
+                        "<div class='movie'><h1>"+title+"</h1><img src="+ pic +"><a href=\"{% url 'show' movies.movie.id %}\">View Details</a><a href=\"{% url 'remove_from_list' movies.movie.id %}\">Remove From List</a></div>"
+                        )
+                }, 'json');
+            {% endfor %}
+        });
+    </script>
 </head>
 <body>
-    <h1>This is the watch list!</h1>
+    <div id='navigation'>
+        <h1>Hello {{ request.session.name }}, this is your watch list!!!</h1>
+    </div>
+    <div id='movie_list_outer'>
+        <div id='movie_list_inner'></div>
+    </div>
     <a href="{% url 'index' %}">GO BACK</a>
 </body>
 </html>
