@@ -2,5 +2,16 @@
   padding: 0px;
   margin: 0px auto;
   font-family: Helvetica;
-  outline: green thin dashed;
+/*  outline: green thin dashed;*/
 }
+
+#wrapper {
+  width: 720px; 
+}
+
+#movie {
+  text-align: center;
+}
+  #movie a {
+    display: block;
+  }

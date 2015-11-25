@@ -14,7 +14,9 @@
                     var title = data.Title;
                     var plot = data.Plot;
                     var pic = data.Poster
-                    $('#movie_list_inner').append("<div class='movie'><h1>"+title+"</h1>"+"<p></p>"+"<img src="+ pic +"></div>")
+                    $('#movie_list_inner').append(
+                        "<div class='movie'><h1>"+title+"</h1><img src="+ pic +"><a href=\"{% url 'show' movie.id %}\">View Details</a></div>"
+                        )
                 }, 'json');
             {% endfor %}
         }); 
@@ -24,11 +26,12 @@
     <div id='wrapper'>
         <div id='navigation'>
             <h1>Hello Your Name</h1>
-            <a href="#">log out</a>
+            <a href="#" id='logout'>log out</a>
         </div>
         <div id='movie_list_outer'>
             <div id='movie_list_inner'></div>
         </div>
+        <a href="{% url 'watch_list' %}">GO TO YOUR WATCH LIST!</a>
     </div>
 </body>
 </html>

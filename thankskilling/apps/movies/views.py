@@ -5,9 +5,13 @@ def index(request):
     context = {
         'movies': Movie.objects.all(),
     }
-    print context['movies']
     return render(request, 'movies/index.html', context)
 
-def show(request):
+def show(request, movie_id):
+    context = {
+        'movie': Movie.objects.get(id=movie_id),
+    }
+    return render(request, 'movies/show.html', context)
 
-    return render(request, 'movies/show.html')
+def watch_list(request):
+    return render(request, 'movies/watch_list.html')
