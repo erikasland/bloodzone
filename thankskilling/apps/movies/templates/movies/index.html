@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Hello</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'movies/CSS/index.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
+	<head>
+	    <title></title>
+	    {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'movies/CSS/index.css' %}">
+	    <script src="https://apis.google.com/js/platform.js" async defer></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	    <meta name="google-signin-client_id" content="976044739107-s51mrphhdqnus946ar5m3bahk9jggsbu.apps.googleusercontent.com">
+		<script>
         $(document).ready(function(){
             console.log('outside the loop');
             {% for movie in movies %}
@@ -19,19 +22,48 @@
                         )
                 }, 'json');
             {% endfor %}
-        }); 
-    </script>
-</head>
-<body>
+        });
+
+		  function signOut() {
+		    var auth2 = gapi.auth2.getAuthInstance();
+		    auth2.signOut().then(function () {
+
+		      console.log('User signed out.@@@@@@@@');
+		      window.location.href = '/logout';
+		    });
+		  }
+
+		  function onLoad() {
+		      gapi.load('auth2', function() {
+		        gapi.auth2.init();
+		      });
+		    }
+		</script>
+	</head>
+
+	<body>
+
     <div id='wrapper'>
         <div id='navigation'>
-            <h1>Hello Your Name</h1>
-            <a href="#" id='logout'>log out</a>
+            <h1>Hello </h1>
+            	{% if request.session.method == 'auth' %}
+            		{{request.session.name}}
+            		
+            		<img src="{{request.session.img}}" id='profile_picture'>
+            		<a href="#" onclick="signOut();">Sign out</a>
+            		<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+            	{% else %}
+            		Hello {{request.session.name}}
+            		<a href= "{% url 'logout' %}">Log out</a>
+            	{% endif %}
+
         </div>
         <div id='movie_list_outer'>
             <div id='movie_list_inner'></div>
         </div>
         <a href="{% url 'watch_list' %}">GO TO YOUR WATCH LIST!</a>
     </div>
-</body>
+
+	</body>
+
 </html>

@@ -8,15 +8,19 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-za-z0-9\.\+_-]+@[a-za-z0-9\._-]+\.[a-za-z]*$')
 
 def index(request):
-    # del request.session['name']
-    print " all users: ", User.objects.all().values()
-    if "name" in request.session:
-        return render(request, 'myauth/success.html')
-   
+    print 'hi from index in myauth'
+    #del request.session['name']
+    #print " all users: ", User.objects.all().values()
+    if 'name' in request.session:
+        print 'this is not working@@@@@', 
+        return redirect('/movies')  
+        #return render(request, 'myauth/success.html')
     else:
+        print 'not yet #######3'
         return render(request, 'myauth/index.html')
 
 def registration(request):
+    print 'hi from reg in myauth'
     email = request.POST['email']
     date = datetime.now().strftime('%Y-%m-%d')
     password = request.POST['password']
@@ -47,6 +51,7 @@ def registration(request):
     return redirect('/')
 
 def login(request):
+    print 'hi from login in myauth'
     email = request.POST['email']
     password = request.POST['password']
     #log_pass = User.objects.get(email = email).pw_hash
@@ -68,13 +73,16 @@ def login(request):
     return redirect('/')
 
 def logout(request):
-    del request.session['name']
-    del request.session['method']
-    del request.session['id']
+    print 'hi from logout in myauth'
+    # del request.session['name']
+    # del request.session['method']
+    # del request.session['id']
+    # del request.session['img']
+    request.session.clear()
     return redirect('/')
 
 def success(request):
-    
+    print 'hi from success in myauth'
     name = request.POST['name']
     image = request.POST['image']
     email = request.POST['email']
@@ -96,5 +104,7 @@ def success(request):
     request.session['name'] = name
     request.session['method'] = 'auth'
     request.session['id'] = user_id
-   
-    return render(request, 'myauth/success.html', info)
+    request.session['img'] = image
+    return redirect('/movies')
+    #return render(request, 'myauth/success.html', info)
+    #return redirect('index1',  info)

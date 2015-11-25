@@ -4,14 +4,14 @@
   font-family: Helvetica;
 }
 
-/*html { 
-  background: url("http://www.picturenose.com/wp-content/uploads/horror.jpg") no-repeat center center fixed; 
+html { 
+  background: url("http://img07.deviantart.net/b292/i/2006/031/2/c/creep_by_strof.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-*/
+
 
 #navigation {
   margin-bottom: 20px;
@@ -31,7 +31,8 @@
   padding: 5px;
 }
 #movie_list_inner {
-  width: 10300px;
+  width: auto;
+  white-space: nowrap;
 }
 
 .movie {
@@ -51,4 +52,8 @@
 img {
   height: 300px;
   width: 200px;
+  padding-bottom: 10px;
+}
+a{
+  color: darkred;
 }
