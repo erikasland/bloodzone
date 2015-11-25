@@ -12,6 +12,16 @@
   background-size: cover;
 }
 */
+
+#navigation {
+  margin-bottom: 20px;
+  display: block;
+}
+  #navigation h1, #navigation a {
+    display: inline-block;
+    vertical-align: center;
+  }
+
 #movie_list_outer {
   display: block;
   overflow-x: scroll;
@@ -32,7 +42,6 @@
   vertical-align: center;
 }
   .movie h1 {
-    -webkit-text-stroke: 2px black;
     height: 125px;
     vertical-align: center;
   }

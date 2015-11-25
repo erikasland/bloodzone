@@ -25,5 +25,11 @@ def add_to_list(request, movie_id):
     movie = Movie.objects.get(id=movie_id)
     user = User.objects.get(id=request.session['id'])
     Watch_List.objects.create(movie=movie, user=user)
-    print 'successfully added to watch_list'
+    return redirect('watch_list')
+
+def remove(request, movie_id):
+    movie = Movie.objects.get(id=movie_id)
+    user = User.objects.get(id=request.session['id'])
+    WL_id = Watch_List.objects.filter(movie=movie, user=user)[0].id
+    Watch_List.objects.get(id=WL_id).delete()
     return redirect('watch_list')

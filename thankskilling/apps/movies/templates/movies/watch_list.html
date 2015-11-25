@@ -15,7 +15,7 @@
                     var plot = data.Plot;
                     var pic = data.Poster
                     $('#movie_list_inner').append(
-                        "<div class='movie'><h1>"+title+"</h1><img src="+ pic +"><a href=\"{% url 'show' movies.movie.id %}\">View Details</a></div>"
+                        "<div class='movie'><h1>"+title+"</h1><img src="+ pic +"><a href=\"{% url 'show' movies.movie.id %}\">View Details</a><a href=\"{% url 'remove_from_list' movies.movie.id %}\">Remove From List</a></div>"
                         )
                 }, 'json');
             {% endfor %}
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id='navigation'>
-        <h1>Hello {{ request.session.name }}</h1>
+        <h1>Hello {{ request.session.name }}, this is your watch list!!!</h1>
         <a href="#" id='logout'>log out</a>
     </div>
     <div id='movie_list_outer'>
